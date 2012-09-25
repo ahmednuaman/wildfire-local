@@ -82,7 +82,7 @@ class Bootstrap
     {
         // GET vars are the default assigns
         // they're overwritten by the assigns.json, if it exists
-        return array_merge($_GET, $this->load_assigns_file());
+        return array_merge($this->load_assigns_file(), $_GET);
     }
 
     private function load_assigns_file()
