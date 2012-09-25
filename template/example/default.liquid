@@ -1,0 +1,9 @@
+{% plugin rawtext some_text %}
+<h1>{{ some_text }}</h1>
+
+{% plugin fb_like_button like_button %}
+{% marker like_button %}
+    {{ like_button }}
+{% endmarker %}
+
+<img src="{{ 'assets/ajax-loader.gif' | assets_url }}" />

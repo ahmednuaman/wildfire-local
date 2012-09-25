@@ -1,0 +1,4 @@
+RewriteEngine On
+RewriteCond $1 !^(index\.php|robots\.txt)
+RewriteRule ^([^\/]+)/assets/([^\/]+) /template/$1/assets/$2 [L]
+RewriteRule ^([^\/]+)/(.*\.liquid) /index.php?template=$1&file=$2 [L,QSA]
