@@ -116,7 +116,7 @@ class LiquidTagFormBlock extends LiquidBlockExtended
 {
     public function render(&$context)
     {
-        $form_start = '<div class="widget_preview newsletter_signup_form" data-widget-pos="newsletter_signup_form"><div class="screen"></div> <script class=\'engagements_error_template\' type=\'text/x-jquery-tmpl\'> <div class=\'engagements_errorbox\'> <ol> {{each errors}} <li>{{html $value}}</li> {{/each}} </ol> </div> </script> <form accept-charset="UTF-8" action="/" class="engagements_submission identity_required auth_required" data-network_auth_required="true" data-remote="true" data-type="json" data-uuid="" enctype="multipart/form-data" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="" /></div>';
+        $form_start = '<script class=\'engagements_error_template\' type=\'text/x-jquery-tmpl\'> <div class=\'engagements_errorbox\'> <ol> {{each errors}} <li>{{html $value}}</li> {{/each}} </ol> </div> </script> <form accept-charset="UTF-8" action="/" class="engagements_submission identity_required auth_required" data-network_auth_required="true" data-remote="true" data-type="json" data-uuid="" enctype="multipart/form-data" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="" /></div>';
         $form_end = '</form>';
 
         return $form_start . $this->renderAll($this->_nodelist, $context) . $form_end;
