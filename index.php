@@ -48,6 +48,7 @@ class Bootstrap
         $renderer->registerTag('formblock', 'LiquidTagFormBlock');
         $renderer->registerTag('marker', 'LiquidTagMarker');
         $renderer->registerTag('plugin', 'LiquidTagPlugin');
+        $renderer->registerTag('style', 'LiquidTagStyle');
         $renderer->registerTag('text', 'LiquidTagText');
         $renderer->registerTag('unless', 'LiquidTagUnless');
         $renderer->registerFilter(new LiquidFilterAssetsURL());
@@ -135,6 +136,25 @@ class LiquidTagPlugin extends LiquidBlockExtended
     public function render(&$context)
     {
         return '';
+    }
+}
+
+class LiquidTagStyle extends LiquidBlockExtended 
+{
+    public function __construct($markup, &$tokens, &$fileSystem)
+    {
+        $this->_markup = explode(' ', $markup);
+    }
+
+    public function render(&$context)
+    {
+        $c = new LiquidFilterAssetsURL();
+
+        return $this->_markup[0] . ': ' . 
+            ($this->_markup[0] === 'background-image' ? 
+                $c->asset_url($context->get($this->_markup[1])) : 
+                $context->get($this->_markup[1]) 
+            ) . '; ';
     }
 }
 
