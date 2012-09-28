@@ -152,7 +152,7 @@ class LiquidTagStyle extends LiquidBlockExtended
 
         return $this->_markup[0] . ': ' . 
             ($this->_markup[0] === 'background-image' ? 
-                $c->asset_url($context->get($this->_markup[1])) : 
+                'url(' . $c->asset_url($context->get($this->_markup[1])) . ')' : 
                 $context->get($this->_markup[1]) 
             ) . '; ';
     }
